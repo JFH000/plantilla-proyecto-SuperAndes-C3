@@ -78,7 +78,8 @@ public interface SucursalRepository extends JpaRepository<Sucursal, Integer> {
      */
     @Query(
         value = """
-            SELECT  su.*,
+            SELECT
+                    su.*,
                     pr.id,
                     pr.nombre
             FROM sucursales su

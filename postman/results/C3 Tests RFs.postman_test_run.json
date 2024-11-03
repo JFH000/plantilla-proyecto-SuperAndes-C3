@@ -1,7 +1,7 @@
 {
-	"id": "656afd0f-eff1-4099-baf7-657dd1f8de68",
+	"id": "9581d079-ea22-44c1-abac-76573163ee04",
 	"name": "C3 Tests RFs",
-	"timestamp": "2024-11-01T22:03:57.812Z",
+	"timestamp": "2024-11-03T06:12:39.993Z",
 	"collection_id": "37456751-69737c37-d79a-4fba-9ba6-92311fe406be",
 	"folder_id": 0,
 	"environment_id": "0",
@@ -9,14 +9,14 @@
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2024-11-01T22:03:45.283Z",
+	"startedAt": "2024-11-03T06:12:33.856Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "652ddfd1-c560-4514-8464-7477ebc5bb24",
 			"name": "Crear",
 			"url": "http://localhost:8080/ciudades/new/save",
-			"time": 1041,
+			"time": 708,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -31,7 +31,7 @@
 				}
 			},
 			"times": [
-				1041
+				708
 			],
 			"allTests": [
 				{
@@ -43,7 +43,7 @@
 			"id": "c9321182-160f-49f5-89f3-bd3ce8e0023b",
 			"name": "Consultar todas",
 			"url": "http://localhost:8080/ciudades",
-			"time": 347,
+			"time": 166,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -51,7 +51,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				347
+				166
 			],
 			"allTests": [
 				{}
@@ -61,7 +61,7 @@
 			"id": "81ce30aa-a470-4d79-8091-a8d6140672a3",
 			"name": "Crear",
 			"url": "http://localhost:8080/sucursales/new/save",
-			"time": 111,
+			"time": 97,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -76,7 +76,7 @@
 				}
 			},
 			"times": [
-				111
+				97
 			],
 			"allTests": [
 				{
@@ -115,7 +115,7 @@
 			"id": "e70edb8f-faf5-47c5-8a48-c58f3feb9ae5",
 			"name": "Consultar todas",
 			"url": "http://localhost:8080/sucursales",
-			"time": 45,
+			"time": 88,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -123,7 +123,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				45
+				88
 			],
 			"allTests": [
 				{}
@@ -133,7 +133,7 @@
 			"id": "d41054dc-815b-443a-b6aa-ca5ab2abe9ea",
 			"name": "Crear",
 			"url": "http://localhost:8080/bodegas/new/save",
-			"time": 65,
+			"time": 93,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -148,7 +148,7 @@
 				}
 			},
 			"times": [
-				65
+				93
 			],
 			"allTests": [
 				{
@@ -160,7 +160,7 @@
 			"id": "32c0e200-f0f3-4f83-a6f4-3dccc32d77ef",
 			"name": "Crear copy",
 			"url": "http://localhost:8080/bodegas/new/save",
-			"time": 48,
+			"time": 54,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -175,7 +175,7 @@
 				}
 			},
 			"times": [
-				48
+				54
 			],
 			"allTests": [
 				{
@@ -187,7 +187,7 @@
 			"id": "b2ccc20a-0ebd-4c3b-ad17-e48c2328eb8c",
 			"name": "Crear id_sucursal invalido",
 			"url": "http://localhost:8080/bodegas/new/save",
-			"time": 28,
+			"time": 38,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -202,7 +202,7 @@
 				}
 			},
 			"times": [
-				28
+				38
 			],
 			"allTests": [
 				{
@@ -214,7 +214,7 @@
 			"id": "d912a314-2b16-4735-ac13-b51060912dcf",
 			"name": "Consultar todas",
 			"url": "http://localhost:8080/bodegas",
-			"time": 69,
+			"time": 126,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -222,7 +222,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				69
+				126
 			],
 			"allTests": [
 				{}
@@ -232,7 +232,7 @@
 			"id": "539eae1f-5617-4f43-89db-a90ad388a8b5",
 			"name": "Eliminar",
 			"url": "http://localhost:8080/bodegas/6/delete",
-			"time": 46,
+			"time": 62,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -247,7 +247,7 @@
 				}
 			},
 			"times": [
-				46
+				62
 			],
 			"allTests": [
 				{
@@ -259,7 +259,7 @@
 			"id": "1068f29e-33d4-4bd4-9eaf-543e725a4e62",
 			"name": "Crear",
 			"url": "http://localhost:8080/proveedores/new/save",
-			"time": 5995,
+			"time": 90,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -274,7 +274,7 @@
 				}
 			},
 			"times": [
-				5995
+				90
 			],
 			"allTests": [
 				{
@@ -286,7 +286,7 @@
 			"id": "4d5117e7-a2b9-4998-bdd3-c1be7c8710b6",
 			"name": "Consultar todos",
 			"url": "http://localhost:8080/proveedores",
-			"time": 22,
+			"time": 33,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -294,7 +294,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				22
+				33
 			],
 			"allTests": [
 				{}
@@ -304,7 +304,7 @@
 			"id": "50d1cd90-d24a-46d5-b201-b166d862a1cb",
 			"name": "Editar",
 			"url": "http://localhost:8080/proveedores/7/edit/save",
-			"time": 18,
+			"time": 27,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -319,7 +319,7 @@
 				}
 			},
 			"times": [
-				18
+				27
 			],
 			"allTests": [
 				{
@@ -331,7 +331,7 @@
 			"id": "ec1e1730-1613-433a-958e-7289452a86e0",
 			"name": "Crear",
 			"url": "http://localhost:8080/tipos_categoria/new/save",
-			"time": 30,
+			"time": 66,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -346,7 +346,7 @@
 				}
 			},
 			"times": [
-				30
+				66
 			],
 			"allTests": [
 				{
@@ -358,7 +358,7 @@
 			"id": "00299163-3a1b-4bc8-b7fa-5951307f7d21",
 			"name": "Consultar - todas",
 			"url": "http://localhost:8080/tipos_categoria",
-			"time": 31,
+			"time": 36,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -366,7 +366,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				31
+				36
 			],
 			"allTests": [
 				{}
@@ -376,7 +376,7 @@
 			"id": "d5077d32-878a-4f05-9b83-45ed5c95d25a",
 			"name": "Consultar - id",
 			"url": "http://localhost:8080/tipos_categoria/consulta?id=9",
-			"time": 20,
+			"time": 26,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -391,7 +391,7 @@
 				}
 			},
 			"times": [
-				20
+				26
 			],
 			"allTests": [
 				{
@@ -403,7 +403,7 @@
 			"id": "3d306543-f4df-45f2-9241-f359a3c4b846",
 			"name": "Consultar - id invalido",
 			"url": "http://localhost:8080/tipos_categoria/consulta?id=1000",
-			"time": 9,
+			"time": 14,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -418,7 +418,7 @@
 				}
 			},
 			"times": [
-				9
+				14
 			],
 			"allTests": [
 				{
@@ -430,7 +430,7 @@
 			"id": "e512bee5-6bd1-45cf-8ce3-33a88711ac0b",
 			"name": "Consulta - nombre",
 			"url": "http://localhost:8080/tipos_categoria/consulta?nombre=Categoria test",
-			"time": 20,
+			"time": 25,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -445,7 +445,7 @@
 				}
 			},
 			"times": [
-				20
+				25
 			],
 			"allTests": [
 				{
@@ -511,7 +511,7 @@
 			"id": "f2cf3a20-3931-43f1-9c98-d9a40e4b2817",
 			"name": "Crear",
 			"url": "http://localhost:8080/productos/new/save",
-			"time": 70,
+			"time": 138,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -526,7 +526,7 @@
 				}
 			},
 			"times": [
-				70
+				138
 			],
 			"allTests": [
 				{
@@ -538,7 +538,7 @@
 			"id": "96d20082-dbae-48ce-ae43-b240b4c9aa29",
 			"name": "Crear - id_tipo_categoria invalido",
 			"url": "http://localhost:8080/productos/new/save",
-			"time": 20,
+			"time": 32,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -553,7 +553,7 @@
 				}
 			},
 			"times": [
-				20
+				32
 			],
 			"allTests": [
 				{
@@ -565,7 +565,7 @@
 			"id": "22ec909e-337c-4384-bacb-010f51040689",
 			"name": "Consultar - todos",
 			"url": "http://localhost:8080/productos",
-			"time": 80,
+			"time": 133,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -573,7 +573,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				80
+				133
 			],
 			"allTests": [
 				{}
@@ -583,7 +583,7 @@
 			"id": "08761405-345d-4fb9-9df3-32566f43094a",
 			"name": "Consultar - id",
 			"url": "http://localhost:8080/productos/consulta?id=25",
-			"time": 34,
+			"time": 33,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -598,7 +598,7 @@
 				}
 			},
 			"times": [
-				34
+				33
 			],
 			"allTests": [
 				{
@@ -610,6 +610,60 @@
 			"id": "280e3d9f-94f2-4e78-9ca9-802c64ec1ae2",
 			"name": "Consultar - id invalido",
 			"url": "http://localhost:8080/productos/consulta?id=1000",
+			"time": 16,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "aae1771a-5c7d-43ff-a7a8-54a038e86195",
+			"name": "Consulta - nombre",
+			"url": "http://localhost:8080/productos/consulta?nombre=Producto Test",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "48813654-c63a-4f84-9e8f-1393845cb377",
+			"name": "Consulta - nombre invalido",
+			"url": "http://localhost:8080/productos/consulta?nombre=1000",
 			"time": 13,
 			"responseCode": {
 				"code": 500,
@@ -634,64 +688,10 @@
 			]
 		},
 		{
-			"id": "aae1771a-5c7d-43ff-a7a8-54a038e86195",
-			"name": "Consulta - nombre",
-			"url": "http://localhost:8080/productos/consulta?nombre=Producto Test",
-			"time": 24,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				24
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "48813654-c63a-4f84-9e8f-1393845cb377",
-			"name": "Consulta - nombre invalido",
-			"url": "http://localhost:8080/productos/consulta?nombre=1000",
-			"time": 17,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				17
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
 			"id": "aa2ab06a-9485-4298-ae34-f5bfb98a195b",
 			"name": "Consultar - sin parametros",
 			"url": "http://localhost:8080/productos/consulta",
-			"time": 7,
+			"time": 8,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -706,7 +706,7 @@
 				}
 			},
 			"times": [
-				7
+				8
 			],
 			"allTests": [
 				{
@@ -718,7 +718,7 @@
 			"id": "1a2173ec-56e3-4829-adc6-515439381648",
 			"name": "Actualizar",
 			"url": "http://localhost:8080/productos/25/edit/save",
-			"time": 37,
+			"time": 25,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -733,7 +733,7 @@
 				}
 			},
 			"times": [
-				37
+				25
 			],
 			"allTests": [
 				{
@@ -745,7 +745,7 @@
 			"id": "d7699745-ab29-425d-ac17-165c8d700e5f",
 			"name": "Actualizar - id_tipo_categoria invalido",
 			"url": "http://localhost:8080/productos/25/edit/save",
-			"time": 49,
+			"time": 32,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -760,7 +760,7 @@
 				}
 			},
 			"times": [
-				49
+				32
 			],
 			"allTests": [
 				{
@@ -772,7 +772,7 @@
 			"id": "0d3e79f7-706d-4c1e-84f2-da76ae768f6a",
 			"name": "Crear",
 			"url": "http://localhost:8080/ordenes_compra/new/save",
-			"time": 97,
+			"time": 66,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -787,7 +787,7 @@
 				}
 			},
 			"times": [
-				97
+				66
 			],
 			"allTests": [
 				{
@@ -826,7 +826,7 @@
 			"id": "635dd5c8-034a-443c-b3d9-b8ff561143e8",
 			"name": "Crear - id_bodega invalido",
 			"url": "http://localhost:8080/ordenes_compra/new/save",
-			"time": 59,
+			"time": 27,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -841,7 +841,7 @@
 				}
 			},
 			"times": [
-				59
+				27
 			],
 			"allTests": [
 				{
@@ -853,7 +853,7 @@
 			"id": "27588506-3ee5-4055-aa84-1ac9d33109a7",
 			"name": "Crear - id_proveedor invalido Copy",
 			"url": "http://localhost:8080/ordenes_compra/new/save",
-			"time": 44,
+			"time": 29,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -868,7 +868,7 @@
 				}
 			},
 			"times": [
-				44
+				29
 			],
 			"allTests": [
 				{
@@ -880,7 +880,7 @@
 			"id": "2109e031-df73-46c3-92ba-35bc3b28abe2",
 			"name": "Actulizar - estado a anulada",
 			"url": "http://localhost:8080/ordenes_compra/13/anular",
-			"time": 75,
+			"time": 79,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -895,7 +895,7 @@
 				}
 			},
 			"times": [
-				75
+				79
 			],
 			"allTests": [
 				{
@@ -907,7 +907,7 @@
 			"id": "b80b3aa0-85cc-416f-91da-03c06ed5b6df",
 			"name": "Actulizar - estado a anulada - no vigente",
 			"url": "http://localhost:8080/ordenes_compra/13/anular",
-			"time": 44,
+			"time": 30,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -922,7 +922,7 @@
 				}
 			},
 			"times": [
-				44
+				30
 			],
 			"allTests": [
 				{
@@ -934,7 +934,7 @@
 			"id": "68725e6f-0a10-4ca8-9880-760f5846ba78",
 			"name": "Consultar - todas",
 			"url": "http://localhost:8080/ordenes_compra",
-			"time": 56,
+			"time": 64,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -949,7 +949,7 @@
 				}
 			},
 			"times": [
-				56
+				64
 			],
 			"allTests": [
 				{
@@ -961,7 +961,7 @@
 			"id": "98f28ee4-3ab5-4607-a32e-d5b214ec6884",
 			"name": "Crear",
 			"url": "http://localhost:8080/contiene/1/1/new/save",
-			"time": 159,
+			"time": 197,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -976,7 +976,7 @@
 				}
 			},
 			"times": [
-				159
+				197
 			],
 			"allTests": [
 				{
@@ -986,7 +986,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 8927,
+	"totalTime": 2800,
 	"collection": {
 		"requests": [
 			{

@@ -1,22 +1,22 @@
 {
-	"id": "112ddc09-79db-4177-be88-896ca77c36dc",
+	"id": "42085839-8fb4-4364-a9d4-2cc8e503fe46",
 	"name": "C3 Tests RFCs",
-	"timestamp": "2024-11-01T22:04:19.757Z",
+	"timestamp": "2024-11-03T06:13:44.500Z",
 	"collection_id": "37456751-bf20e293-92b9-4748-b334-dbf81f6aca51",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 27,
+	"totalPass": 29,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2024-11-01T22:04:10.377Z",
+	"startedAt": "2024-11-03T06:13:00.945Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "5e5487e5-1292-4c9f-8683-44b60a20782c",
 			"name": "Mostrar el indice de ocupcion de productos de bodegas",
 			"url": "http://localhost:8080/productos/consulta?ids=1,4",
-			"time": 6238,
+			"time": 47,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -31,7 +31,7 @@
 				}
 			},
 			"times": [
-				6238
+				47
 			],
 			"allTests": [
 				{
@@ -70,7 +70,7 @@
 			"id": "ac0546c0-c57b-487f-9b70-e0701aac98dd",
 			"name": "Mostrar el indice de ocupcion de productos de bodegas con producto sin bodega",
 			"url": "http://localhost:8080/productos/consulta?ids=6",
-			"time": 15,
+			"time": 30,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -85,7 +85,7 @@
 				}
 			},
 			"times": [
-				15
+				30
 			],
 			"allTests": [
 				{
@@ -97,222 +97,6 @@
 			"id": "c570d550-03b0-48bf-8dc1-5efd70b44dde",
 			"name": "Mostrar el indice de ocupcion de productos de bodegas con producto y parametros adicionales",
 			"url": "http://localhost:8080/productos/consulta?id=1&ids=9",
-			"time": 5,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "51c7b292-d80d-40e2-b1a0-8b622bbf1e79",
-			"name": "Mostrar",
-			"url": "http://localhost:8080/productos/consulta?minPrice=3000&maxPrice=10000",
-			"time": 28,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				28
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "8f721f66-2d7e-475b-bbcb-c088e1850355",
-			"name": "Mostrar - respuesta vacia",
-			"url": "http://localhost:8080/productos/consulta?minPrice=3004&maxPrice=3005",
-			"time": 16,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				16
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "ef52efb7-0d84-44f1-adea-3ea40535f47b",
-			"name": "Mostrar - fecha inferior a ",
-			"url": "http://localhost:8080/productos/consulta?fechaInferiorA=2024-10-16",
-			"time": 24,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				24
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "dfd67343-f647-499d-b760-c293b3a5b508",
-			"name": "Mostrar - fecha inferior a - respuesta vacia",
-			"url": "http://localhost:8080/productos/consulta?fechaInferiorA=1000-02-02",
-			"time": 11,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				11
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "78bf4fde-bf2c-424a-b6fd-504fcde9a21f",
-			"name": "Mostrar - fecha inferior a - entrada invalida",
-			"url": "http://localhost:8080/productos/consulta?fechaInferiorA=Karol",
-			"time": 7,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "975afd71-a74d-4dd6-831d-cb8f23d4c093",
-			"name": "Mostrar - fecha posterior a",
-			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=2020-02-01",
-			"time": 37,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				37
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "12604c4f-67ca-47ae-a0ce-aaf1eef279f2",
-			"name": "Mostrar - fecha posterior a - respuesta vacia",
-			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=5000-02-02",
-			"time": 10,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "63bbeb34-8c6e-4769-a02b-f7b31b4f291f",
-			"name": "Mostrar - fecha posterior a - entrada invalida",
-			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=Karol",
 			"time": 8,
 			"responseCode": {
 				"code": 500,
@@ -337,10 +121,10 @@
 			]
 		},
 		{
-			"id": "173681f1-4078-4519-896f-9b6eae90451d",
-			"name": "Mostrar - fecha rango",
-			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=2025-01-01&fechaInferiorA=2027-01-01",
-			"time": 22,
+			"id": "51c7b292-d80d-40e2-b1a0-8b622bbf1e79",
+			"name": "Mostrar",
+			"url": "http://localhost:8080/productos/consulta?minPrice=3000&maxPrice=10000",
+			"time": 38,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -355,7 +139,223 @@
 				}
 			},
 			"times": [
-				22
+				38
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "8f721f66-2d7e-475b-bbcb-c088e1850355",
+			"name": "Mostrar - respuesta vacia",
+			"url": "http://localhost:8080/productos/consulta?minPrice=3004&maxPrice=3005",
+			"time": 18,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "ef52efb7-0d84-44f1-adea-3ea40535f47b",
+			"name": "Mostrar - fecha inferior a ",
+			"url": "http://localhost:8080/productos/consulta?fechaInferiorA=2024-10-16",
+			"time": 63,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				63
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "dfd67343-f647-499d-b760-c293b3a5b508",
+			"name": "Mostrar - fecha inferior a - respuesta vacia",
+			"url": "http://localhost:8080/productos/consulta?fechaInferiorA=1000-02-02",
+			"time": 33,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "78bf4fde-bf2c-424a-b6fd-504fcde9a21f",
+			"name": "Mostrar - fecha inferior a - entrada invalida",
+			"url": "http://localhost:8080/productos/consulta?fechaInferiorA=Karol",
+			"time": 8,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "975afd71-a74d-4dd6-831d-cb8f23d4c093",
+			"name": "Mostrar - fecha posterior a",
+			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=2020-02-01",
+			"time": 54,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				54
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "12604c4f-67ca-47ae-a0ce-aaf1eef279f2",
+			"name": "Mostrar - fecha posterior a - respuesta vacia",
+			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=5000-02-02",
+			"time": 14,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "63bbeb34-8c6e-4769-a02b-f7b31b4f291f",
+			"name": "Mostrar - fecha posterior a - entrada invalida",
+			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=Karol",
+			"time": 7,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "173681f1-4078-4519-896f-9b6eae90451d",
+			"name": "Mostrar - fecha rango",
+			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=2025-01-01&fechaInferiorA=2027-01-01",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
 			],
 			"allTests": [
 				{
@@ -367,7 +367,7 @@
 			"id": "149f2a3b-ebf3-4e63-aa79-ab26b2aa2e1c",
 			"name": "Mostrar - fecha rango - respuesta vacia",
 			"url": "http://localhost:8080/productos/consulta?fechaPosteriorA=2035-01-01&fechaInferiorA=2037-01-01",
-			"time": 13,
+			"time": 14,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -382,7 +382,7 @@
 				}
 			},
 			"times": [
-				13
+				14
 			],
 			"allTests": [
 				{
@@ -394,7 +394,7 @@
 			"id": "b2ebc649-371e-4fb2-ab0b-74c5ebfda216",
 			"name": "Mostrar - pretenecientes a una sucursal",
 			"url": "http://localhost:8080/productos/consulta?id_sucursal=1",
-			"time": 34,
+			"time": 28,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -409,7 +409,7 @@
 				}
 			},
 			"times": [
-				34
+				28
 			],
 			"allTests": [
 				{
@@ -421,7 +421,7 @@
 			"id": "1b9b26e6-ba61-41ea-88a7-9ba2c5a8f89f",
 			"name": "Mostrar - pretenecientes a una sucursal - respuesta vacia",
 			"url": "http://localhost:8080/productos/consulta?id_sucursal=100",
-			"time": 13,
+			"time": 12,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -436,7 +436,7 @@
 				}
 			},
 			"times": [
-				13
+				12
 			],
 			"allTests": [
 				{
@@ -448,7 +448,7 @@
 			"id": "508593d5-ffd9-4f6a-b7b4-0268935824e4",
 			"name": "Mostrar - pretenecientes a un tipo de categoria",
 			"url": "http://localhost:8080/productos/consulta?id_tipo_categoria=3",
-			"time": 43,
+			"time": 26,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -463,7 +463,7 @@
 				}
 			},
 			"times": [
-				43
+				26
 			],
 			"allTests": [
 				{
@@ -502,7 +502,7 @@
 			"id": "2a666e78-1b36-4e40-990d-fb70aaf6b5c6",
 			"name": "Mostrar - pertenecientes a una bodega y sucursal",
 			"url": "http://localhost:8080/productos/consulta?id_sucursal=2&id_bodega=2",
-			"time": 23,
+			"time": 24,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -517,7 +517,7 @@
 				}
 			},
 			"times": [
-				23
+				24
 			],
 			"allTests": [
 				{
@@ -529,7 +529,7 @@
 			"id": "e896309a-eaed-44d3-a999-cbe1aa093015",
 			"name": "Mostrar - pertenecientes a una bodega y sucursal - respuesta vacia",
 			"url": "http://localhost:8080/productos/consulta?id_sucursal=1&id_bodega=4",
-			"time": 16,
+			"time": 11,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -544,7 +544,7 @@
 				}
 			},
 			"times": [
-				16
+				11
 			],
 			"allTests": [
 				{
@@ -556,141 +556,6 @@
 			"id": "397373f6-7541-4ac7-b0e5-3a29dd92aafd",
 			"name": "Mostrar - pertenecientes a una bodega y sucursal - sin sucursal",
 			"url": "http://localhost:8080/productos/consulta?id_bodega=4",
-			"time": 7,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "364bef40-bf5f-4109-83a3-565c26838871",
-			"name": "Mostrar - sucursales con un producto",
-			"url": "http://localhost:8080/sucursales/consulta?id_producto=7",
-			"time": 34,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				34
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "364ca211-aef2-404e-97ef-c6bc533fc098",
-			"name": "Mostrar - por id - respuesta vacia",
-			"url": "http://localhost:8080/sucursales/consulta?id_producto=6",
-			"time": 21,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				21
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "a21035b5-dd91-4638-93e0-a6cc5ba9d729",
-			"name": "Mostrar - por nombre",
-			"url": "http://localhost:8080/sucursales/consulta?nombre_producto=Licuadora",
-			"time": 36,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				36
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "71fbae91-b857-4307-b4bb-acf85b315410",
-			"name": "Mostrar - por nombre - resultado vacio",
-			"url": "http://localhost:8080/sucursales/consulta?nombre_producto=Helado",
-			"time": 16,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status code is 500": true
-			},
-			"testPassFailCounts": {
-				"Status code is 500": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				16
-			],
-			"allTests": [
-				{
-					"Status code is 500": true
-				}
-			]
-		},
-		{
-			"id": "aa84be7d-9c83-49e9-9864-aa550257d6aa",
-			"name": "Mostrar - sin parametros",
-			"url": "http://localhost:8080/sucursales/consulta",
 			"time": 6,
 			"responseCode": {
 				"code": 500,
@@ -715,10 +580,10 @@
 			]
 		},
 		{
-			"id": "fb36d1f7-fa39-4e9d-b66e-28d7aeafa08e",
-			"name": "Mostrar - requieren orden de compra",
-			"url": "http://localhost:8080/productos/consulta/reqOrdenCompra",
-			"time": 26,
+			"id": "364bef40-bf5f-4109-83a3-565c26838871",
+			"name": "Mostrar - sucursales con un producto",
+			"url": "http://localhost:8080/sucursales/consulta?id_producto=7",
+			"time": 32,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -733,7 +598,196 @@
 				}
 			},
 			"times": [
-				26
+				32
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "364ca211-aef2-404e-97ef-c6bc533fc098",
+			"name": "Mostrar - por id - respuesta vacia",
+			"url": "http://localhost:8080/sucursales/consulta?id_producto=6",
+			"time": 24,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "a21035b5-dd91-4638-93e0-a6cc5ba9d729",
+			"name": "Mostrar - por nombre",
+			"url": "http://localhost:8080/sucursales/consulta?nombre_producto=Licuadora",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "71fbae91-b857-4307-b4bb-acf85b315410",
+			"name": "Mostrar - por nombre - resultado vacio",
+			"url": "http://localhost:8080/sucursales/consulta?nombre_producto=Helado",
+			"time": 14,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "aa84be7d-9c83-49e9-9864-aa550257d6aa",
+			"name": "Mostrar - sin parametros",
+			"url": "http://localhost:8080/sucursales/consulta",
+			"time": 5,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "fb36d1f7-fa39-4e9d-b66e-28d7aeafa08e",
+			"name": "Mostrar - requieren orden de compra",
+			"url": "http://localhost:8080/productos/consulta/reqOrdenCompra",
+			"time": 375,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				375
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "c0a30858-4abf-4ca5-983f-44f72929dfcf",
+			"name": "Mostrar documentos (serializable)",
+			"url": "http://localhost:8080/documentos?isolation_level=SERIALIZABLE&id_bodega=1&id_sucursal=1",
+			"time": 20072,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20072
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "cef6a41a-33d9-4cd5-870a-8d0e5a86f70e",
+			"name": "Mostrar documentos (read committed)",
+			"url": "http://localhost:8080/documentos?isolation_level=READ_COMMITTED&id_bodega=1&id_sucursal=1",
+			"time": 20070,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20070
 			],
 			"allTests": [
 				{
@@ -743,7 +797,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 6727,
+	"totalTime": 41109,
 	"collection": {
 		"requests": [
 			{
@@ -852,6 +906,14 @@
 			},
 			{
 				"id": "fb36d1f7-fa39-4e9d-b66e-28d7aeafa08e",
+				"method": "GET"
+			},
+			{
+				"id": "c0a30858-4abf-4ca5-983f-44f72929dfcf",
+				"method": "GET"
+			},
+			{
+				"id": "cef6a41a-33d9-4cd5-870a-8d0e5a86f70e",
 				"method": "GET"
 			}
 		]

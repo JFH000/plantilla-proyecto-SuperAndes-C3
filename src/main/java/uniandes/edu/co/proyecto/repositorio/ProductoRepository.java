@@ -140,7 +140,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
      */
     @Query(
         value = """
-            SELECT co.id_bodega,
+            SELECT  co.id_bodega,
                     pr.id AS id_producto,
                     (SUM(co.cantidad) / co.capacidad) AS porcentaje_ocupacion
             FROM contiene co
@@ -162,7 +162,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
      */
     @Query(
         value = """
-            SELECT co.id_bodega,
+            SELECT  co.id_bodega,
                     bo.nombre,
                     pr.*,
                     co.costo_promedio AS precio,
@@ -241,7 +241,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
      */
     @Query(
         value = """
-            SELECT pr.id,
+            SELECT
+                    pr.id,
                     pr.nombre,
                     co.cantidad,
                     co.cantidad_minima,
@@ -266,7 +267,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
      */
     @Query(
         value = """
-            SELECT pr.id,
+            SELECT
+                    pr.id,
                     pr.nombre AS producto,
                     bo.id AS bodega,
                     bo.id_sucursal AS sucursal,

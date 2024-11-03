@@ -78,7 +78,8 @@ public interface Orden_compraRepository extends JpaRepository<Orden_compra, Inte
      */
     @Query(
         value = """
-            SELECT oc.*,
+            SELECT
+                oc.*,
                 c.cantidad,
                 c.precio_unitario,
                 c.id_producto

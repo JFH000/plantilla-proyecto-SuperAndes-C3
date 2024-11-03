@@ -1867,6 +1867,210 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "RFC6",
+			"item": [
+				{
+					"name": "Mostrar documentos (serializable)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var template = `\r",
+									"<style type=\"text/css\">\r",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+									"    .tftable tr {background-color:#ffffff;}\r",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+									"    .tftable tr:hover {background-color:#e0ffff;}\r",
+									"</style>\r",
+									"\r",
+									"<table class=\"tftable\" border=\"1\">\r",
+									"    <tr>\r",
+									"        <th>id</th>\r",
+									"        <th>orden_compra</th>\r",
+									"        <th>fecha_creacion</th>\r",
+									"        <th>id_sucursal</th>\r",
+									"        <th>sucursal</th>\r",
+									"        <th>id_bodega</th>\r",
+									"        <th>bodega</th>\r",
+									"        <th>id_proveedor</th>\r",
+									"        <th>proveedor</th>\r",
+									"        <th>id_producto</th>\r",
+									"        <th>producto</th>\r",
+									"        <th>cantidad</th>\r",
+									"        <th>precio_unitario</th>\r",
+									"    </tr>\r",
+									"    \r",
+									"    {{#each response}}\r",
+									"        <tr>\r",
+									"            <td>{{this.[0]}}</td>\r",
+									"            <td>{{this.[1]}}</td>\r",
+									"            <td>{{this.[2]}}</td>\r",
+									"            <td>{{this.[3]}}</td>\r",
+									"            <td>{{this.[4]}}</td>\r",
+									"            <td>{{this.[5]}}</td>\r",
+									"            <td>{{this.[6]}}</td>\r",
+									"            <td>{{this.[7]}}</td>\r",
+									"            <td>{{this.[8]}}</td>\r",
+									"            <td>{{this.[9]}}</td>\r",
+									"            <td>{{this.[10]}}</td>\r",
+									"            <td>{{this.[11]}}</td>\r",
+									"            <td>{{this.[12]}}</td>\r",
+									"        </tr>\r",
+									"    {{/each}}\r",
+									"</table>\r",
+									"`;\r",
+									"\r",
+									"function constructVisualizerPayload() {\r",
+									"    return { response: pm.response.json() }; // Obtener la respuesta JSON sin modificaciones\r",
+									"}\r",
+									"\r",
+									"pm.visualizer.set(template, constructVisualizerPayload());\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/documentos?isolation_level=SERIALIZABLE&id_bodega=1&id_sucursal=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"documentos"
+							],
+							"query": [
+								{
+									"key": "isolation_level",
+									"value": "SERIALIZABLE"
+								},
+								{
+									"key": "id_bodega",
+									"value": "1"
+								},
+								{
+									"key": "id_sucursal",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RFC7",
+			"item": [
+				{
+					"name": "Mostrar documentos (read committed)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var template = `\r",
+									"<style type=\"text/css\">\r",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+									"    .tftable tr {background-color:#ffffff;}\r",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+									"    .tftable tr:hover {background-color:#e0ffff;}\r",
+									"</style>\r",
+									"\r",
+									"<table class=\"tftable\" border=\"1\">\r",
+									"    <tr>\r",
+									"        <th>id</th>\r",
+									"        <th>orden_compra</th>\r",
+									"        <th>fecha_creacion</th>\r",
+									"        <th>id_sucursal</th>\r",
+									"        <th>sucursal</th>\r",
+									"        <th>id_bodega</th>\r",
+									"        <th>bodega</th>\r",
+									"        <th>id_proveedor</th>\r",
+									"        <th>proveedor</th>\r",
+									"        <th>id_producto</th>\r",
+									"        <th>producto</th>\r",
+									"        <th>cantidad</th>\r",
+									"        <th>precio_unitario</th>\r",
+									"    </tr>\r",
+									"    \r",
+									"    {{#each response}}\r",
+									"        <tr>\r",
+									"            <td>{{this.[0]}}</td>\r",
+									"            <td>{{this.[1]}}</td>\r",
+									"            <td>{{this.[2]}}</td>\r",
+									"            <td>{{this.[3]}}</td>\r",
+									"            <td>{{this.[4]}}</td>\r",
+									"            <td>{{this.[5]}}</td>\r",
+									"            <td>{{this.[6]}}</td>\r",
+									"            <td>{{this.[7]}}</td>\r",
+									"            <td>{{this.[8]}}</td>\r",
+									"            <td>{{this.[9]}}</td>\r",
+									"            <td>{{this.[10]}}</td>\r",
+									"            <td>{{this.[11]}}</td>\r",
+									"            <td>{{this.[12]}}</td>\r",
+									"        </tr>\r",
+									"    {{/each}}\r",
+									"</table>\r",
+									"`;\r",
+									"\r",
+									"function constructVisualizerPayload() {\r",
+									"    return { response: pm.response.json() }; // Obtener la respuesta JSON sin modificaciones\r",
+									"}\r",
+									"\r",
+									"pm.visualizer.set(template, constructVisualizerPayload());\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/documentos?isolation_level=READ_COMMITTED&id_bodega=1&id_sucursal=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"documentos"
+							],
+							"query": [
+								{
+									"key": "isolation_level",
+									"value": "READ_COMMITTED"
+								},
+								{
+									"key": "id_bodega",
+									"value": "1"
+								},
+								{
+									"key": "id_sucursal",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"variable": [
