@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF5 Tipo Categoria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <h2>Agregar Tipo Categoria</h2>
+
+    <div>
+        <label for="NombreCategoria">Nombre Categoria</label><br>
+        <input type="text" id="NombreCategoria" placeholder="Ingrese el nombre de la categoria"><br><br>
+    </div>
+
+    <div>
+        <label for="Descripcion">Descripcion</label><br>
+        <input type="text" id="Descripcion" placeholder="Descripcion de la categoria"><br><br>
+    </div>
+
+    <div>
+        <label for="Caracteristicas">Caracteristicas</label><br>
+        <input type="text" id="Caracteristicas" placeholder="Ingrese caracteristicas de la categoria"><br><br>
+    </div>
+
+    <button onclick="crearCategoria()">Crear Categoria</button>
+
+    <div id="Mensaje"></div>
+    <script>
+        function crearCategoria(){
+            const nombreCategoria = document.getElementById("NombreCategoria").value;
+            const descripcion = document.getElementById("Descripcion").value;
+            const caracteristicas = document.getElementById("Caracteristicas").value;
+            if (!nombreCategoria){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el nombre";
+                return;
+            }
+            if (!descripcion){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese descripcion alguna";
+                return;
+            }
+            if (!caracteristicas){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese alguna caracteristica";
+                return;
+            }
+
+            const apiURL = "http://localhost:8080/tipos_categoria/new/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"nombre": nombreCategoria,
+                                    "descripcion": descripcion,
+                                    "caracteristicas": caracteristicas})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear categoria");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje").innerHTML = "Categoria creada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF6 Producto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <table id="Tproductos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Fecha Expiracion</th>
+                <th>Codigo Barras</th>
+                <th>Volumen</th>
+                <th>Peso</th>
+                <th>Categoria</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <script>
+        function obtenerProductos(){
+            const apiURL = "http://localhost:8080/productos";
+            
+            fetch(apiURL)
+            .then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error ("Error al obtener productos");
+            }).then(data => {
+                llenarTabla(data);
+            }).catch(error => {
+                console.error("Error: ", error);
+            })
+        }
+
+        function llenarTabla(productos){
+            const tablebody = document.querySelector("#Tproductos tbody");
+            tablebody.innerHTML = "";
+            productos.forEach((element, productoIndex) => {
+                const filaProducto = document.createElement("tr");
+                const columnaIDProducto = document.createElement("td");
+                columnaIDProducto.textContent = element.id;
+                columnaIDProducto.id = `idCiudad-${productoIndex}`;
+                filaProducto.appendChild(columnaIDProducto);
+                
+
+                const columnaNombre = document.createElement("td");
+                columnaNombre.textContent = element.nombre;
+                columnaNombre.id = `nombreCiudad-${productoIndex}`;
+                filaProducto.appendChild(columnaNombre);
+
+                const columnafechaExpiracion = document.createElement("td");
+                columnafechaExpiracion.textContent = element.fecha_expiracion;
+                columnafechaExpiracion.id = `fechaCiudad-${productoIndex}`;
+                filaProducto.appendChild(columnafechaExpiracion);
+
+                const columnacodigoBarras = document.createElement("td");
+                columnacodigoBarras.textContent = element.codigo_barras;
+                columnacodigoBarras.id = `barrasCiudad-${productoIndex}`;
+                filaProducto.appendChild(columnacodigoBarras);
+
+                const columnaVolumen = document.createElement("td");
+                columnaVolumen.textContent = element.volumen;
+                columnaVolumen.id = `volumenCiudad-${productoIndex}`;
+                filaProducto.appendChild(columnaVolumen);
+
+                const columnaPeso = document.createElement("td");
+                columnaPeso.textContent = element.peso;
+                columnaPeso.id = `pesoCiudad-${productoIndex}`;
+                filaProducto.appendChild(columnaPeso);
+
+                const columnaCategoria = document.createElement("td");
+                const valorCategoria = element.id_tipo_categoria?.id + " | " + element.id_tipo_categoria?.nombre;
+                columnaCategoria.textContent = valorCategoria;
+                filaProducto.appendChild(columnaCategoria);
+
+                const columnaAcciones = document.createElement("td");
+                columnaAcciones.id = `acciones-${productoIndex}`;
+                const botonEditar = document.createElement("button");
+                botonEditar.textContent = "editar";
+                botonEditar.onclick = () => mostrarEditar(productoIndex, element);
+                columnaAcciones.appendChild(botonEditar);
+                filaProducto.appendChild(columnaAcciones);
+
+
+
+                tablebody.appendChild(filaProducto);
+
+
+
+            })
+        }
+
+        function mostrarEditar(index, elemento){
+            const celdaNombreProducto = document.getElementById(`nombreCiudad-${index}`);
+            celdaNombreProducto.innerHTML = "";
+            const inputNombre = document.createElement("input");
+            inputNombre.type = "text";
+            inputNombre.value = elemento.nombre;
+            celdaNombreProducto.appendChild(inputNombre);
+
+            const celdaFechaExpiracion = document.getElementById(`fechaCiudad-${index}`);
+            celdaFechaExpiracion.innerHTML = "";
+            const inputFechaExpiracion = document.createElement("input");
+            inputFechaExpiracion.type = "text";
+            inputFechaExpiracion.value = elemento.fecha_expiracion;
+            celdaFechaExpiracion.appendChild(inputFechaExpiracion);
+
+            const celdaCodigoBarras = document.getElementById(`barrasCiudad-${index}`);
+            celdaCodigoBarras.innerHTML = "";
+            const inputCodigoBarras = document.createElement("input");
+            inputCodigoBarras.type = "text";
+            inputCodigoBarras.value = elemento.codigo_barras;
+            celdaCodigoBarras.appendChild(inputCodigoBarras);
+
+            const celdaVolumen = document.getElementById(`volumenCiudad-${index}`);
+            celdaVolumen.innerHTML = "";
+            const inputVolumen = document.createElement("input");
+            inputVolumen.type = "text";
+            inputVolumen.value = elemento.volumen;
+            celdaVolumen.appendChild(inputVolumen);
+
+            const celdaPeso = document.getElementById(`pesoCiudad-${index}`);
+            celdaPeso.innerHTML = "";
+            const inputPeso = document.createElement("input");
+            inputPeso.type = "text";
+            inputPeso.value = elemento.peso;
+            celdaPeso.appendChild(inputPeso);
+
+            const celdaAcciones = document.getElementById(`acciones-${index}`);
+            celdaAcciones.innerHTML = "";
+            const botonGuardar = document.createElement("button");
+            botonGuardar.textContent = "guardar";
+            botonGuardar.onclick = () => actualizarProducto(elemento.id, inputNombre.value, inputFechaExpiracion.value, inputCodigoBarras.value, inputVolumen.value, inputPeso.value);
+            celdaAcciones.appendChild(botonGuardar);
+
+
+        }
+
+        function actualizarProducto(id, nombre, fecha, barras, volumen, peso){
+
+            const apiURL = `http://localhost:8080/productos/${id}/edit/save`;
+            fetch(apiURL, {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({"nombre": nombre,
+                                    "fecha_expiracion": fecha,
+                                    "codigo_barras": barras,
+                                    "volumen": volumen,
+                                    "peso": peso,
+                                    "id_tipo_categoria": {
+                                        "id": 1
+                                    }})
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al actualizar producto");
+            }).then(() => {
+                console.log("Prueba");
+                obtenerProductos();
+
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", obtenerProductos);
+
+    </script>
+</body>

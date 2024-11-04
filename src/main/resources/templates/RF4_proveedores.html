@@ -19,13 +19,13 @@
     </div>
 
     <div>
-        <label for="TelefonoProveedor">Tamaño Bodega</label><br>
+        <label for="TelefonoProveedor">Telefono Proveedor</label><br>
         <input type="text" id="TelefonoProveedor" placeholder="Ingrese el telefono del proveedor"><br><br>
     </div>
 
     <div>
         <label for="DireccionProveedor">Direccion Proveedor</label><br>
-        <input type="number" id="DireccionProveedor" placeholder="Ingrese la direccion del proveedor"><br><br>
+        <input type="text" id="DireccionProveedor" placeholder="Ingrese la direccion del proveedor"><br><br>
     </div>
 
     <button onclick="crearProveedor()">Crear Proveedor</button>
@@ -44,6 +44,10 @@
                 document.getElementById("Mensaje").innerText = "Por favor ingrese el telefono";
                 return;
             }
+            if (!direccionProveedor){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese la direccion";
+                return;
+            }
 
             const apiURL = "http://localhost:8080/proveedores/new/save";
             fetch(apiURL, {
@@ -51,21 +55,102 @@
                 headers:{
                     "Content-Type": "application/json"
                 },
-                body:JSON.stringify({"nombre": "Proveedor test",
-                                    "telefono": "Test",
-                                    "direccion": "Test"})
+                body:JSON.stringify({"nombre": nombreProveedor,
+                                    "telefono": telefonoProveedor,
+                                    "direccion": direccionProveedor})
                 
             }).then(response => {
                 if(response.ok){
                     return response.json();
                 }
-                throw new Error("Error al crear bodega");
+                throw new Error("Error al crear proveedor");
                 
 
             }).then(data => {
-                document.getElementById("Mensaje").innerHTML = "Bodega creada correctamente";
+                document.getElementById("Mensaje").innerHTML = "Proveedor creado correctamente";
             }).catch(error => {
                 document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>
+
+    <br>,</br>
+
+    <h1>Actualizar Proveedores</h1>
+
+    <div>
+        <label for="idProveedor">ID Proveedor a actualizar</label><br>
+        <input type="number" id="idProveedor" placeholder="Ingrese el ID del Proveedor a actualizar"><br><br>
+    </div>
+
+    <div>
+        <label for="NombreProveedorU">Nombre Proveedor</label><br>
+        <input type="text" id="NombreProveedorU" placeholder="Ingrese el nombre del proveedor"><br><br>
+    </div>
+
+    <div>
+        <label for="TelefonoProveedorU">Telefono Proveedor</label><br>
+        <input type="text" id="TelefonoProveedorU" placeholder="Ingrese el telefono del proveedor"><br><br>
+    </div>
+
+    <div>
+        <label for="DireccionProveedorU">Direccion Proveedor</label><br>
+        <input type="text" id="DireccionProveedorU" placeholder="Ingrese la direccion del proveedor"><br><br>
+    </div>
+
+    <button onclick="actualizarProveedor()">Actualizar Proveedor</button>
+
+    <div id="Mensaje2"></div>
+    <script>
+        function actualizarProveedor(){
+            const nombreProveedor = document.getElementById("NombreProveedorU").value;
+            const telefonoProveedor = document.getElementById("TelefonoProveedorU").value;
+            const direccionProveedor = document.getElementById("DireccionProveedorU").value;
+            const idProveedor = document.getElementById("idProveedor").value;
+            if (!idProveedor){
+                document.getElementById("Mensaje2").innerText = "Por favor ingrese el ID a actualizar";
+                return;
+            }
+            if (!nombreProveedor){
+                document.getElementById("Mensaje2").innerText = "Por favor ingrese el nombre";
+                return;
+            }
+            if (!telefonoProveedor){
+                document.getElementById("Mensaje2").innerText = "Por favor ingrese el telefono";
+                return;
+            }
+            if (!direccionProveedor){
+                document.getElementById("Mensaje2").innerText = "Por favor ingrese la direccion";
+                return;
+            }
+            
+            var direccion ="http://localhost:8080/proveedores/";
+            var dir2= (idProveedor);
+            var dir3="/edit/save";
+            direccion = direccion.concat(dir2);
+            direccion= direccion.concat(dir3);
+            const apiURL = direccion;
+            //const apiURL = "http://localhost:8080/proveedores/12/edit/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"nombre": nombreProveedor,
+                                    "telefono": telefonoProveedor,
+                                    "direccion": direccionProveedor})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear proveedor");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje2").innerHTML = "Proveedor actualizado correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje2").innerHTML = error.message;
             });
         }
     </script>

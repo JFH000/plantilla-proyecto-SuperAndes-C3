@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -68,6 +69,7 @@ public class Tipos_categoriaController {
      * @param tipo_categoria Información de la categoría que se quiere crear.
      * @return ResponseEntity<Map<String, Object>> Resultado de la transacción.
      */
+    @CrossOrigin(origins = "null")
     @PostMapping("/tipos_categoria/new/save")
     public ResponseEntity<Map<String, Object>> tipo_categoriaGuardar(@RequestBody Tipo_categoria tipo_categoria) {
         tipo_categoriaRepository.insertarTipo_categoria(tipo_categoria.getNombre(),

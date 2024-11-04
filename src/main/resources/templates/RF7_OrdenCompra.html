@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF7 Orden Compra</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <h1>Agregar Orden de Compra</h1>
+
+    <div>
+        <label for="fecha_creacion">fecha_creacion</label><br>
+        <input type="date" id="fecha_creacion" placeholder="Ingrese la fecha de creacion"><br><br>
+    </div>
+
+    <div>
+        <label for="fecha_esperada">fecha_esperada</label><br>
+        <input type="date" id="fecha_esperada" placeholder="Ingrese la fecha esperada"><br><br>
+    </div>
+
+    <div>
+        <label for="estado">Estado</label><br>
+        <input type="text" id="estado" placeholder="Ingrese el estado"><br><br>
+    </div>
+
+    <div>
+        <label for="idBodega">ID Bodega</label><br>
+        <input type="number" id="idBodega" placeholder="Ingrese el id_bodega"><br><br>
+    </div>
+
+    <div>
+        <label for="idProveedor">ID Proveedor</label><br>
+        <input type="number" id="idProveedor" placeholder="Ingrese el id_proveedor"><br><br>
+    </div>
+
+    <button onclick="crearOrden()">Crear Orden de Compra</button>
+
+    <div id="Mensaje"></div>
+    <script>
+        function crearOrden(){
+            const fecha_creacion = document.getElementById("fecha_creacion").value;
+            const fecha_esperada= document.getElementById("fecha_esperada").value;
+            const estado = document.getElementById("estado").value;
+            const idBodega = document.getElementById("idBodega").value;
+            const idProveedor = document.getElementById("idProveedor").value;
+            if (!fecha_creacion){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese la fecha de creacion";
+                return;
+            }
+            if (!fecha_esperada){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese la fecha esperada";
+                return;
+            }
+            if (!estado){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el estado";
+                return;
+            }
+            if (!idBodega){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el idBodega";
+                return;
+            }
+            if (!idProveedor){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el idProveedor";
+                return;
+            }
+
+            const apiURL = "http://localhost:8080/ordenes_compra/new/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"fecha_creacion": fecha_creacion,
+                                    "fecha_esperada": fecha_esperada,
+                                    "estado": estado,
+                                    "id_bodega": {
+                                        "id":idBodega},
+                                    "id_proveedor": {
+                                    "id": idProveedor
+                                    }})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear la orden de compra");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje").innerHTML = "Orden de Compra creada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>
+</body>

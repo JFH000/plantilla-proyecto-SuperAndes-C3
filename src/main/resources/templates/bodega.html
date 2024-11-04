@@ -71,10 +71,9 @@
             });
         }
     </script>
-
-
+</br>
+</br>
 <h1>Eliminar Bodega</h1>
-
     <div>
         <label for="idBodega">ID Bodega</label><br>
         <input type="number" id="idBodega" placeholder="Ingrese el ID de la bodega"><br><br>
@@ -91,7 +90,13 @@
                 document.getElementById("Mensaje2").innerText = "Por favor ingrese el ID";
                 return;
             }
-            const apiURL = "http://localhost:8080/bodegas/5/delete";
+            var direccion ="http://localhost:8080/bodegas/";
+            var dir2= (idBodega);
+            var dir3="/delete";
+            direccion = direccion.concat(dir2);
+            direccion= direccion.concat(dir3);
+            //const apiURL = "http://localhost:8080/bodegas/6/delete";
+            const apiURL = direccion;
             fetch(apiURL, {
                 method:"GET",
                 headers:{

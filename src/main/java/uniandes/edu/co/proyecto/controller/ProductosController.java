@@ -11,6 +11,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,7 @@ public class ProductosController {
      *
      * @return Collection<Producto> de productos.
      */
+    @CrossOrigin(origins = "null")
     @GetMapping("/productos")
     public Collection<Producto> darProductos() {
         return productoRepository.findAll();
@@ -252,6 +254,7 @@ public class ProductosController {
      * @param producto Informacion actualizada del producto
      * @return ResponseEntity<Map<String,Object>> Resultado de la operación.
      */
+    @CrossOrigin(origins = "null")
     @PostMapping("/productos/{id}/edit/save")
     public ResponseEntity<Map<String,Object>> productoEditarGuardar(@PathVariable("id") Integer id,
                                                                     @RequestBody Producto producto) {
