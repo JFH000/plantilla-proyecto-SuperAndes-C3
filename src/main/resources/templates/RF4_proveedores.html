@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF4 Proveedores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <h1>Agregar Proveedores</h1>
+
+    <div>
+        <label for="NombreProveedor">Nombre Proveedor</label><br>
+        <input type="text" id="NombreProveedor" placeholder="Ingrese el nombre del proveedor"><br><br>
+    </div>
+
+    <div>
+        <label for="TelefonoProveedor">Tamaño Bodega</label><br>
+        <input type="text" id="TelefonoProveedor" placeholder="Ingrese el telefono del proveedor"><br><br>
+    </div>
+
+    <div>
+        <label for="DireccionProveedor">Direccion Proveedor</label><br>
+        <input type="number" id="DireccionProveedor" placeholder="Ingrese la direccion del proveedor"><br><br>
+    </div>
+
+    <button onclick="crearProveedor()">Crear Proveedor</button>
+
+    <div id="Mensaje"></div>
+    <script>
+        function crearProveedor(){
+            const nombreProveedor = document.getElementById("NombreProveedor").value;
+            const telefonoProveedor = document.getElementById("TelefonoProveedor").value;
+            const direccionProveedor = document.getElementById("DireccionProveedor").value;
+            if (!nombreProveedor){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el nombre";
+                return;
+            }
+            if (!telefonoProveedor){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el telefono";
+                return;
+            }
+
+            const apiURL = "http://localhost:8080/proveedores/new/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"nombre": "Proveedor test",
+                                    "telefono": "Test",
+                                    "direccion": "Test"})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear bodega");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje").innerHTML = "Bodega creada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>
+</body>

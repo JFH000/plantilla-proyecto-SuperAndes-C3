@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF3 Bodegas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <h1>Agregar Bodega</h1>
+
+    <div>
+        <label for="NombreBodega">Nombre Bodega</label><br>
+        <input type="text" id="NombreBodega" placeholder="Ingrese el nombre de la bodega"><br><br>
+    </div>
+
+    <div>
+        <label for="TamanioBodega">Tamaño Bodega</label><br>
+        <input type="text" id="TamanioBodega" placeholder="Ingrese el tamaño de la bodega"><br><br>
+    </div>
+
+    <div>
+        <label for="idSucursal">ID Sucursal</label><br>
+        <input type="number" id="idSucursal" placeholder="Ingrese el ID de la sucursal"><br><br>
+    </div>
+
+    <button onclick="crearBodega()">Crear Bodega</button>
+
+    <div id="Mensaje"></div>
+    <script>
+        function crearBodega(){
+            const nombreBodega = document.getElementById("NombreBodega").value;
+            const tamanioBodega = document.getElementById("TamanioBodega").value;
+            const idSucursal = document.getElementById("idSucursal").value;
+            if (!nombreBodega){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el nombre";
+                return;
+            }
+            if (!tamanioBodega){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el tamanio";
+                return;
+            }
+
+            const apiURL = "http://localhost:8080/bodegas/new/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"nombre": nombreBodega,
+                                    "tamanio": tamanioBodega,
+                                    "id_sucursal": {
+                                    "id": idSucursal
+                                    }})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear bodega");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje").innerHTML = "Bodega creada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>
+
+
+<h1>Eliminar Bodega</h1>
+
+    <div>
+        <label for="idBodega">ID Bodega</label><br>
+        <input type="number" id="idBodega" placeholder="Ingrese el ID de la bodega"><br><br>
+    </div>
+
+    <button onclick="eliminarBodega()">Eliminar Bodega</button>
+
+    <div id="Mensaje2"></div>
+    <script>
+        function eliminarBodega(){
+            const idBodega = document.getElementById("idBodega").value;
+            
+            if (!idBodega){
+                document.getElementById("Mensaje2").innerText = "Por favor ingrese el ID";
+                return;
+            }
+            const apiURL = "http://localhost:8080/bodegas/5/delete";
+            fetch(apiURL, {
+                method:"GET",
+                headers:{
+                    "Content-Type": "application/json"
+                }
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al eliminar bodega");
+
+            }).then(data => {
+                document.getElementById("Mensaje2").innerHTML = "Bodega eliminada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje2").innerHTML = error.message;
+            });
+        }
+    </script>
+</body>

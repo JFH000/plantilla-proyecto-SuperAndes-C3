@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Expiracion</th>
+                    <th>Codigo de Barras</th>
+                    <th>Volumen</th>
+                    <th>Peso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itera a través de la lista de tipos de habitaciones -->
+                <tr th:each="Producto : ${Producto}">
+                    <td th:text="${Producto.id}"></td>
+                    <td th:text="${Producto.nombre}"></td>
+                    <td th:text="${Producto.fecha_expiracion}"></td>
+                    <td th:text="${Producto.codigo_barras}"></td>
+                    <td th:text="${Producto.volumen}"></td>
+                    <td th:text="${Producto.peso}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

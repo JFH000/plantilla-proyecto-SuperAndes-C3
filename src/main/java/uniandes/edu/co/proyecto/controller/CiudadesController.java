@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,8 @@ public class CiudadesController {
      * @param ciudad Ciudad que se quiere crear.
      * @return ResponseEntity<Map<String,Object>> resultado de la transacción.
      */
-    @PostMapping("/ciudades/new/save")
+    @CrossOrigin(origins = "null")
+     @PostMapping("/ciudades/new/save")
     public ResponseEntity<Map<String,Object>> ciudadGuardar(@RequestBody Ciudad ciudad) {
         ciudadRepository.insertarCiudad(ciudad.getNombre());
         ciudad.setId(getLast().getId());

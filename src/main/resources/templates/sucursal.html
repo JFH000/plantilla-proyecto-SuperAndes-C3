@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF2 Sucursales</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <h1>Agregar Sucursal</h1>
+
+    <div>
+        <label for="NombreSucursal">Nombre Sucursal</label><br>
+        <input type="text" id="NombreSucursal" placeholder="Ingrese el nombre de la sucursal"><br><br>
+    </div>
+
+    <div>
+        <label for="TamanioSucursal">Tamaño Sucursal</label><br>
+        <input type="text" id="TamanioSucursal" placeholder="Ingrese el tamaño de la sucursal"><br><br>
+    </div>
+
+    <div>
+        <label for="TelefonoSucursal">Teléfono Sucursal</label><br>
+        <input type="text" id="TelefonoSucursal" placeholder="Ingrese el teléfono de la sucursal"><br><br>
+    </div>
+
+    <div>
+        <label for="DireccionSucursal">Dirección Sucursal</label><br>
+        <input type="text" id="DireccionSucursal" placeholder="Ingrese la dirección de la sucursal"><br><br>
+    </div>
+
+    <div>
+        <label for="idCiudad">ID Ciudad</label><br>
+        <input type="number" id="idCiudad" placeholder="Ingrese el ID de la ciudad"><br><br>
+    </div>
+
+    <button onclick="crearSucursal()">Crear Sucursal</button>
+
+    <!-- "nombre": "Sucursal Test",
+    "tamanio": "test",
+    "telefono": "test",
+    "direccion": "test",
+    "id_ciudad": {
+        "id": {{ciudad_test}}
+    } -->
+
+    <div id="Mensaje"></div>
+    <script>
+        function crearSucursal(){
+            const nombreSucursal = document.getElementById("NombreSucursal").value;
+            const tamanioSucursal = document.getElementById("TamanioSucursal").value;
+            const telefonoSucursal = document.getElementById("TelefonoSucursal").value;
+            const direccionSucursal = document.getElementById("DireccionSucursal").value;
+            const idCiudad = document.getElementById("idCiudad").value;
+            if (!nombreSucursal){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el nombre";
+                return;
+            }
+            if (!tamanioSucursal){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el tamanio";
+                return;
+            }
+            if (!telefonoSucursal){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el telefono";
+                return;
+            }
+            if (!direccionSucursal){
+                document.getElementById("Mensaje").innerText = "Por favor ingrese la direccion";
+                return;
+            }
+
+            const apiURL = "http://localhost:8080/sucursales/new/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"nombre": nombreSucursal,
+                                    "tamanio": tamanioSucursal,
+                                    "telefono": telefonoSucursal,
+                                    "direccion": direccionSucursal,
+                                    "id_ciudad": {
+                                    "id": idCiudad
+                                    }})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear sucursal");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje").innerHTML = "Sucursal creada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>
+</body>

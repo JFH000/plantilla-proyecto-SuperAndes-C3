@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -66,6 +67,7 @@ public class SucursalesController {
      * @param sucursal Sucursal que se quiere crear.
      * @return ResponseEntity<Map<String, Object>> Resultado de la transacción.
      */
+    @CrossOrigin(origins = "null")
     @PostMapping("/sucursales/new/save")
     public ResponseEntity<Map<String, Object>> sucursalGuardar(@RequestBody Sucursal sucursal) {
         try {

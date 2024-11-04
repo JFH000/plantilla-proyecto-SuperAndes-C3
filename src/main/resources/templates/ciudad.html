@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF1 Ciudades</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Ciudades</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ciudad : ${ciudades}">
+                    <td th:text="${ciudad.id}"></td>
+                    <td th:text="${ciudad.nombre}"></td>
+                </tr>
+            </tbody>
+        </table> 
+        <a th:href="@{/ciudades/new}" class="btn btn-primary">Refrescar</a>
+
+
+    </div> 
+
+    <h1>Agregar Ciudad</h1>
+    <label for="NombreCiudad">Nombre Ciudad</label>
+    <input type="text" id="NombreCiudad" placeholder="Ingrese el nombre de la ciudad">
+    <button onclick="crearCiudad()">Crear Ciudad</button>
+
+    <div id="Mensaje"></div>
+    <script>
+        function crearCiudad(){
+            const nombreCiudad = document.getElementById("NombreCiudad").value;
+            if (!nombreCiudad){
+
+                document.getElementById("Mensaje").innerText = "Por favor ingrese el nombre";
+                return;
+
+            }
+            const apiURL = "http://localhost:8080/ciudades/new/save";
+            fetch(apiURL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({"nombre": nombreCiudad})
+                
+            }).then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                throw new Error("Error al crear ciudad");
+                
+
+            }).then(data => {
+                document.getElementById("Mensaje").innerHTML = "Ciudad creada correctamente";
+            }).catch(error => {
+                document.getElementById("Mensaje").innerHTML = error.message;
+            });
+        }
+    </script>
+
+</body>
+</html>

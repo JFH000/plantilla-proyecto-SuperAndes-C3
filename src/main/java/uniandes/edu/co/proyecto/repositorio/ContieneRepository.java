@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.Contiene;
 
-public interface ContieneRepository extends JpaRepository<Contiene,Integer>{
+public interface ContieneRepository extends JpaRepository<Contiene, Integer>{
 
     /**
      * RNF3: Leer una fila de la tabla contiene dado su PK

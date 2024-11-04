@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,7 @@ public class BodegasController {
      * @param bodega Bodega que se quiere crear.
      * @return ResponseEntity<Map<String,Object>> resultado de la transacción.
      */
+    @CrossOrigin(origins = "null")
     @PostMapping("/bodegas/new/save")
     public ResponseEntity<Map<String,Object>> bodegaGuardar(@RequestBody Bodega bodega) {
         try {
@@ -59,6 +61,7 @@ public class BodegasController {
      * @param id Identificador único de una bodega próxima a ser eliminada.
      * @return ResponseEntity<Map<String,Object>> resultado de la transacción.
      */
+    @CrossOrigin(origins = "null")
     @GetMapping("/bodegas/{id}/delete")
     public ResponseEntity<Map<String,Object>> bodegaEliminar(@PathVariable("id") Integer id) {
         try {
