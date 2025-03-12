@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.repositorio;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -123,6 +124,27 @@ public interface Orden_compraRepository extends JpaRepository<Orden_compra, Inte
         nativeQuery = true
     )
     Collection<Orden_compra> getLast();
+    
+    
+     /**
+     * RFC6: Obtiene los documentos de ingreso de productos a bodega de los últimos 30 días 
+     * para una sucursal y bodega específicas.
+     */
+    @Query(
+        value = "SELECT new uniandes.edu.co.proyecto.modelo.DocumentoIngresoDTO(s.nombre AS nombreSucursal, " +
+                "b.nombre AS nombreBodega, d.numero_documento AS numeroDocumento, d.fecha_ingreso AS fechaIngreso, " +
+                "p.nombre AS nombreProveedor) " +
+                "FROM sucursales s " +
+                "JOIN bodegas b ON b.id_sucursal = s.id " +
+                "JOIN documentos_ingreso d ON d.id_bodega = b.id " +
+                "JOIN proveedores p ON p.id = d.id_proveedor " +
+                "WHERE s.id = :idSucursal " +
+                "AND b.id = :idBodega " +
+                "AND d.fecha_ingreso >= CURRENT_DATE - 30",
+        nativeQuery = false
+    )
+    List<uniandes.edu.co.proyecto.modelo.DocumentoIngresoDTO> obtenerDocumentosIngreso(@Param("idSucursal") Integer idSucursal,
+                                                       @Param("idBodega") Integer idBodega);
 
     /**
      * RNF2: Leer los ids de los productos que se compran en una orden de compra
@@ -158,3 +180,6 @@ public interface Orden_compraRepository extends JpaRepository<Orden_compra, Inte
     void actualizarEstadoAEntregado(@Param("id") Integer id);
 
 }
+
+
+
